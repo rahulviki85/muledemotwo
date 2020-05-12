@@ -1,0 +1,36 @@
+[
+{
+    "productCode": "1001",
+     "productname":"iphone",
+    "description": "iPhone 6S",
+    "count": 151,
+     "price":56899,
+     "features":{
+      "type": "Electronics",
+      "Brand": "IOS"
+      }
+  },
+  {
+    "productCode": "1002",
+     "productname":"Rice",
+    "description": "Kolam Rice Pack",
+    "count": 151,
+     "price":93,
+     "features":{
+      "type": "Grocery",
+      "Brand": "ITC"
+      }
+  },
+{
+    "productCode": "1003",
+     "productname":"Pen",
+    "description": "Pen Black",
+    "count": 11,
+     "price":13,
+     "features":{
+      "type": "Staitonary",
+      "Brand": "Yetra"
+      }
+  }
+
+]

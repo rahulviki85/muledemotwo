@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="dataOne" format="json">
+      <types:shape format="weave" example="examples/product1.json"><![CDATA[%dw 2.0
+
+type dataOne = {|
+  productCode: String, 
+  productname: String, 
+  description: String, 
+  count: Number {"typeId": "int"}, 
+  price: Number {"typeId": "int"}, 
+  features: {|
+    "type": String, 
+    Brand: String
+  |}
+|} {"example": "{\\\"productCode\\\":\\\"1001\\\",\\\"productname\\\":\\\"iphone\\\",\\\"description\\\":\\\"iPhone 6S\\\",\\\"count\\\":151,\\\"price\\\":56899,\\\"features\\\":{\\\"type\\\":\\\"Electronics\\\",\\\"Brand\\\":\\\"IOS\\\"}}"}
+
+]]></types:shape>
+    </types:type>
+    <types:type name="dataarray" format="json">
+      <types:shape format="weave" example="examples/productArray.json"><![CDATA[%dw 2.0
+
+type dataarray = Array<{|  productCode: String,   productname: String,   description: String,   count: Number {"typeId": "int"},   price: Number {"typeId": "int"},   features: {|    "type": String,     Brand: String  |}|}> {"example": "[{\\\"productCode\\\":\\\"1001\\\",\\\"productname\\\":\\\"iphone\\\",\\\"description\\\":\\\"iPhone 6S\\\",\\\"count\\\":151,\\\"price\\\":56899,\\\"features\\\":{\\\"type\\\":\\\"Electronics\\\",\\\"Brand\\\":\\\"IOS\\\"}},{\\\"productCode\\\":\\\"1002\\\",\\\"productname\\\":\\\"Rice\\\",\\\"description\\\":\\\"Kolam Rice Pack\\\",\\\"count\\\":151,\\\"price\\\":93,\\\"features\\\":{\\\"type\\\":\\\"Grocery\\\",\\\"Brand\\\":\\\"ITC\\\"}},{\\\"productCode\\\":\\\"1003\\\",\\\"productname\\\":\\\"Pen\\\",\\\"description\\\":\\\"Pen Black\\\",\\\"count\\\":11,\\\"price\\\":13,\\\"features\\\":{\\\"type\\\":\\\"Staitonary\\\",\\\"Brand\\\":\\\"Yetra\\\"}}]"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#922b6372-f518-4584-83ec-f16248a902d1">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="dataarray"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>

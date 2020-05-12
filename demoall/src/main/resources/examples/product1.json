@@ -1,0 +1,11 @@
+{
+    "productCode": "1001",
+     "productname":"iphone",
+    "description": "iPhone 6S",
+    "count": 151,
+     "price":56899,
+     "features":{
+      "type": "Electronics",
+      "Brand": "IOS"
+      }
+  }
